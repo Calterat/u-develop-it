@@ -20,8 +20,20 @@ app.get('/', (req, res) => {
   });
 });
 
-db.all(`SELECT * FROM candidates`, (err, rows) => {
-  console.log(rows);
+// db.all(`SELECT * FROM candidates`, (err, rows) => {
+//   console.log(rows);
+// })
+
+// GET a single candidates
+// db.get(`SELECT * FROM candidates WHERE id = 1`, (err, row) => {
+//   if (err) console.log(err);
+//   console.log(row);
+// })
+
+// Delete a candidates
+db.run(`DELETE FROM candidates WHERE id = ?`, 1, function(err, result) {
+  if (err) console.log(err);
+  console.log(result, this, this.changes);
 })
 
 // Default response for any other request(Not Found) Catch all request
