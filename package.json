@@ -1,11 +1,33 @@
 {
   "name": "u-develop-it",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "description": "sqlNodeIntegration",
+  "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest",
+    "migrate": "sqlite3 db/election.db < db/schema.sql",
+    "seed": "sqlite3 db/election.db < db/seeds.sql",
+    "db": "sqlite3 db/election.db",
+    "start": "node server.js"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "Julian",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Calterat/u-develop-it.git"
+  },
+  "keywords": [
+    "sql"
+  ],
+  "bugs": {
+    "url": "https://github.com/Calterat/u-develop-it/issues"
+  },
+  "homepage": "https://github.com/Calterat/u-develop-it#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "sqlite3": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3"
+  }
 }
